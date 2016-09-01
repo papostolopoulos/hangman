@@ -1,0 +1,275 @@
+/* http://meyerweb.com/eric/tools/css/reset/
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+  display: block;
+}
+body {
+  line-height: 1;
+}
+ol, ul {
+  list-style: none;
+}
+blockquote, q {
+  quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+  content: '';
+  content: none;
+}
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+/*
+-----------------------
+main
+-----------------------
+*/
+
+/*All of the font-based properties may be combined and rolled into one font property
+and shorthand value. The font property can accept multiple font-based property values.
+The order of these property values should be as follows, from left to right:
+font-style, font-variant, font-weight, font-size, line-height, and font-family.*/
+
+body {
+  font: normal normal 400 18px/22px "Oxygen", Helvetica, Arial, sans-serif;
+  color: 	rgba(0, 0, 0, 1);
+  background:	rgba(255, 255, 255, 1);
+  padding: 5px;
+}
+
+header {
+  height: 44px;
+  background: rgba(0, 0, 0, 1);
+  color: rgba(255, 255, 255, 1);
+  /*padding: 10px;*/
+}
+
+footer {
+  text-align: center;
+  padding: 10px;
+}
+
+a {
+  color: rgba(0, 0, 0, 1);
+}
+
+a:hover {
+  color: rgba(128, 128, 128, 1);
+}
+
+/*
+-----------------------
+div tags
+-----------------------
+*/
+
+.mainDiv {
+  height: 600px;
+}
+
+.startGame {
+  background: rgba(255, 255, 255, 1);
+  height: 114px;
+  padding: 5px 10px 0 10px;
+  /*margin: 10px;*/
+  border-top: 5px solid rgba(0, 0, 0, 1);
+  width: 50%;
+  vertical-align: middle;
+}
+
+.letterGuess {
+  background: rgba(0, 0, 0, 1);
+  height: 80px;
+  padding: 5px 10px 5px 10px;
+  width: 50%;
+  vertical-align: middle;
+}
+
+#infoMessage {
+  height: 44px;
+  background: rgba(255, 255, 255, 1);
+  padding: 0 10px 0 10px;
+  vertical-align: middle;
+}
+
+.usedLetters {
+  background: rgba(0, 0, 0, 1);
+  color: rgba(255, 255, 255, 1);
+  height: 76px;
+  padding: 0 10px 0 10px;
+  width: 50%;
+  vertical-align: middle;
+}
+
+.remainingLetters {
+  background: rgba(255, 255, 255, 1);
+  color: rgba(0, 0, 0, 1);
+  height: 44px;
+  padding: 0 10px 0 10px;
+  width: 50%;
+  vertical-align: middle;
+}
+
+.iKnowTheWordDiv {
+  color: rgba(255, 255, 255, 1);
+  background: rgba(0, 0, 0, 1);
+  height: 122px;
+  padding: 10px;
+  width: 50%;
+  padding: 0 10px 0 10px;
+  vertical-align: middle;
+}
+
+/*
+-----------------------
+tables
+-----------------------
+*/
+
+table {
+  margin: 5px 0 0 0;
+  font-size: 20px;
+}
+
+#randomWordTable {
+  border-bottom: 1px solid black;
+}
+
+.randomWordTd {
+  border-right: 1px solid black;
+  text-align: center;
+  width: 30px;
+  font: normal normal 400 28px/22px "Comfortaa", Helvetica, Arial, sans-serif;
+}
+
+.randomWordTdWhite {
+  color: white;
+}
+
+.randomWordTdBlack {
+  color: black;
+}
+
+/*
+-----------------------
+image
+-----------------------
+*/
+
+#imageArea {
+  display: inline-block;
+  float: right;
+  width: 50%;
+  height: 480px;
+  border: 5px solid black;
+  padding: 5px;
+  vertical-align: center;
+}
+
+img {
+  width: auto;
+  height: 460px;
+  /*border: 1px solid red;*/
+}
+
+.finalImage {
+  width: 100%;
+}
+
+/*
+-----------------------
+typography
+-----------------------
+*/
+/*font-style, font-variant, font-weight, font-size, line-height, and font-family.*/
+
+h1 {
+  /*font-size: 32px;
+  line-height: 44px;*/
+  text-align: center;
+  font: normal normal 400 32px/44px Helvetica, Arial, sans-serif;
+}
+
+h2 {
+  font-size: 24px;
+  line-height: 44px;
+}
+
+h3 {
+  font-size: 24px;
+  line-height: 44px;
+}
+
+input {
+  font-size: 24px;
+}
+
+/*
+-----------------------
+buttons
+-----------------------
+*/
+
+.btn {
+  color: rgba(255, 255, 255, 1);
+  background: rgba(128, 128, 128, 1);
+  border-radius: 5px;
+  cursor: pointer;
+  display: inline-block;
+  font-weight: 400;
+  letter-spacing: .5px;
+  margin: 0;
+  /*text-transform: uppercase;*/
+  border: 1px solid rgba(0, 0, 0, 1);
+  padding: 10px 20px;
+}
+
+.btn:hover {
+  background: rgba(255, 255, 255, 1);
+  color: rgba(0, 0, 0, 1);
+}
+
+/*
+-----------------------
+box sizing
+-----------------------
+*/
+
+*,
+*:before,
+*:after {
+  -webkit-box-sizing: border-box;
+     -moz-box-sizing: border-box;
+          box-sizing: border-box;
+  -webkit-user-select: none;   /* Chrome/Safari/Opera */
+  -khtml-user-select: none;    /* Konqueror */
+  -moz-user-select: none;      /* Firefox */
+        }
