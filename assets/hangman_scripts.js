@@ -25,10 +25,12 @@ $(document).ready(function(){
           if ($wordGuess === randomWord) {
             $("#infoMessage").html("<h3>That is great! You have guessed the word. YOU WON!</h3>");
             $("#imageArea").html("<img class='finalImage' src='assets/images/escape.gif'>");
+            $("#iKnowTheWord").val("");
           }
           else {
             $("#infoMessage").html("<h3>Sorry, the right word is " + randomWord + ". You lost :-(</h3>");
             $("#imageArea").html("<img src='assets/images/12.jpg'>");
+            $("#iKnowTheWord").val("");
           }
         });
       } //End of success key
@@ -99,6 +101,7 @@ $(document).ready(function(){
   $(".startButton").click(function(){
     $("tr").empty();
     $("#infoMessage").empty();
+    $("#newLetter").val("");
     $("#imageArea").html("<img src='assets/images/1.jpg'>");
     newRandomWord();
   });  //End of $(".startButton").click
@@ -111,7 +114,7 @@ $(document).ready(function(){
     else {
       newLetterEntry();
     }
-
+    $("#newLetter").val("");
   });
 
 });
