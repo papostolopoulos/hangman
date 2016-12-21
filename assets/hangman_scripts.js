@@ -8,6 +8,7 @@ $(document).ready(function(){
       url: "http://randomword.setgetgo.com/get.php",
       dataType: "jsonp",
       jsonpCallback: 'RandomWordComplete',
+      //cache: false,
       success: function(data) {
         var randomWord = data.Word.toLowerCase();
         var newRow = $("tr");
@@ -20,6 +21,7 @@ $(document).ready(function(){
         });
         $(".remainingLetters").html("<h3>You have " + randomWord.length + " letters remaining for guessing</h3>");
         $("#usedLetters").empty();
+        $("#wordSubmit").off(); //You can move this in the "new game action". Also put and elseif statement in the event the user clicks on wordSubmit but has not entered a word
         $("#wordSubmit").click(function(){
           var $wordGuess = $("#iKnowTheWord").val().toLowerCase();
           if ($wordGuess === randomWord) {
@@ -28,6 +30,7 @@ $(document).ready(function(){
             $("#iKnowTheWord").val("");
           }
           else {
+            console.log("word guess is: ", $wordGuess, "the random word is", randomWord);
             $("#infoMessage").html("<h3>Sorry, the right word is " + randomWord + ". You lost :-(</h3>");
             $("#imageArea").html("<img src='assets/images/12.jpg'>");
             $("#iKnowTheWord").val("");
