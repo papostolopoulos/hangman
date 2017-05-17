@@ -5,7 +5,7 @@ $(document).ready(function(){
   function newRandomWord() {
     $.ajax({
       type: "GET",
-      url: "http://randomword.setgetgo.com/get.php",
+      url: "http://setgetgo.com/randomword/get.php",
       dataType: "jsonp",
       jsonpCallback: 'RandomWordComplete',
       //cache: false,
