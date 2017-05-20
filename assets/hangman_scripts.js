@@ -5,6 +5,7 @@ $(document).ready(function(){
   function newRandomWord() {
     $.ajax({
       type: "GET",
+      // alternative url: http://api.wordnik.com/v4/words.json/randomWords?hasDictionaryDef=true&minCorpusCount=0&minLength=5&maxLength=15&limit=1&api_key= 07cddb87a0830eaaa7002037ee80e86305979aed8ca58ac79
       url: "http://setgetgo.com/randomword/get.php",
       dataType: "jsonp",
       jsonpCallback: 'RandomWordComplete',

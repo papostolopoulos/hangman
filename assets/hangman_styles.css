@@ -60,8 +60,8 @@ font-style, font-variant, font-weight, font-size, line-height, and font-family.*
 
 body {
   font: normal normal 400 18px/22px "Oxygen", Helvetica, Arial, sans-serif;
-  color: 	rgba(0, 0, 0, 1);
-  background:	rgba(255, 255, 255, 1);
+  color: 	black;
+  background:	white;
   margin: 0;
   padding: 0;
   height: 100%;
@@ -73,17 +73,19 @@ body {
 }*/
 
 header {
-  height: 100px;
-  padding-top: 30px;
-  background: rgba(0, 0, 0, 1);
-  color: rgba(255, 255, 255, 1);
+  height: 50px;
+  background: black;
+  color: white;
   margin-bottom: 5px;
-  /*padding: 10px;*/
+  text-align: center;
+  line-height: 50px;
+  font-size: 150%;
+  font-weight: bold;
 }
 
 main {
   width: 100%;
-  padding-bottom: 110px;
+  padding-bottom: 50px;
 }
 
 #sectionMain {
@@ -95,14 +97,19 @@ main {
 
 footer {
   text-align: center;
-  padding: 10px;
   position: absolute;
-  height: 110px;
+  height: 50px;
   background-color: black;
   left: 0;
   bottom: 0;
   width: 100%;
   color: white;
+  display: table;
+}
+
+#footerChild {
+  display: table-cell;
+  vertical-align: middle;
 }
 
 footer a {
@@ -110,11 +117,11 @@ footer a {
 }
 
 a {
-  color: rgba(0, 0, 0, 1);
+  color: black;
 }
 
 a:hover {
-  color: rgba(128, 128, 128, 1);
+  color: gray;
 }
 
 /*
@@ -123,59 +130,55 @@ div tags
 -----------------------
 */
 
-.mainDiv {
-  height: 600px;
+#letterEntries {
+  width: 50%;
+  display: inline-block;
 }
 
 .startGame {
-  background: rgba(255, 255, 255, 1);
+  background: white;
   height: 114px;
   padding: 5px 10px 0 10px;
   /*margin: 10px;*/
-  border-top: 5px solid rgba(0, 0, 0, 1);
-  width: 50%;
+  border-top: 5px solid black;
   vertical-align: middle;
 }
 
 .letterGuess {
-  background: rgba(0, 0, 0, 1);
+  background: black;
   height: 80px;
   padding: 5px 10px 5px 10px;
-  width: 50%;
   vertical-align: middle;
 }
 
 #infoMessage {
   height: 44px;
-  background: rgba(255, 255, 255, 1);
+  background: white;
   padding: 0 10px 0 10px;
   vertical-align: middle;
 }
 
 .usedLetters {
-  background: rgba(0, 0, 0, 1);
-  color: rgba(255, 255, 255, 1);
+  background: black;
+  color: white;
   height: 76px;
   padding: 0 10px 0 10px;
-  width: 50%;
   vertical-align: middle;
 }
 
 .remainingLetters {
-  background: rgba(255, 255, 255, 1);
-  color: rgba(0, 0, 0, 1);
+  background: white;
+  color: black;
   height: 44px;
   padding: 0 10px 0 10px;
-  width: 50%;
   vertical-align: middle;
 }
 
 .iKnowTheWordDiv {
-  color: rgba(255, 255, 255, 1);
-  background: rgba(0, 0, 0, 1);
+  color: white;
+  background: black;
   height: 122px;
   padding: 10px;
-  width: 50%;
   padding: 0 10px 0 10px;
   vertical-align: middle;
 }
@@ -271,8 +274,8 @@ buttons
 */
 
 .btn {
-  color: rgba(255, 255, 255, 1);
-  background: rgba(128, 128, 128, 1);
+  color: white;
+  background: gray;
   border-radius: 5px;
   cursor: pointer;
   display: inline-block;
@@ -280,13 +283,13 @@ buttons
   letter-spacing: .5px;
   margin: 0;
   /*text-transform: uppercase;*/
-  border: 1px solid rgba(0, 0, 0, 1);
+  border: 1px solid black;
   padding: 10px 20px;
 }
 
 .btn:hover {
-  background: rgba(255, 255, 255, 1);
-  color: rgba(0, 0, 0, 1);
+  background: white;
+  color: black;
 }
 
 /*
@@ -304,4 +307,4 @@ box sizing
   -webkit-user-select: none;   /* Chrome/Safari/Opera */
   -khtml-user-select: none;    /* Konqueror */
   -moz-user-select: none;      /* Firefox */
-        }
+}
