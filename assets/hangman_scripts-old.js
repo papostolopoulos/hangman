@@ -1,59 +1,45 @@
-// alternative url: http://api.wordnik.com/v4/words.json/randomWords?hasDictionaryDef=true&minCorpusCount=0&minLength=5&maxLength=15&limit=1&api_key= 07cddb87a0830eaaa7002037ee80e86305979aed8ca58ac79
-
-
 $(document).ready(function(){
-  var alphabet = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z", " ", "'"]
-
-
+  var alphabet = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"]
   //FUNCTIONS
   //1. New random word
-  function newRandomWord(){
-    var url = "https://wordsapiv1.p.mashape.com/words/?random=true";
-    fetch(url, {
-      method: "GET",
-      headers: {
-        'X-Mashape-Key': 'N5TPAl6S0Dmsh231cDKa7vKInQxwp1iMvEWjsniJfs7d8e0C86',
-        'Accept': 'application/json',
-        'Content-Type': 'application/json'
-      }
-    })
-    .then(function(response) {
-      console.log(response);
-      return response.json();
-    })
-    .then(function(data) {
-      console.log(data.word);
-      return data.word;
-    })
-    .then(function(word) {
-      var randomWord = word.toLowerCase();
-      var newRow = $("tr");
-      console.log("The new random word is: " + randomWord);
-      for (var i = 0; i < randomWord.length; i++) {
-        newRow.append($("<td class='randomWordTd randomWordTdWhite'>" + randomWord[i] + "</td>"));
-      }
-      $("#randomWordTable").append(function(){
-          $(newRow).show(2000);
-      });
-      $(".remainingLetters").html("<h3>You have " + randomWord.length + " letters remaining for guessing</h3>");
-      $("#usedLetters").empty();
-      $("#wordSubmit").off(); //You can move this in the "new game action". Also put and elseif statement in the event the user clicks on wordSubmit but has not entered a word
-      $("#wordSubmit").click(function(){
-        var $wordGuess = $("#iKnowTheWord").val().toLowerCase();
-        if ($wordGuess === randomWord) {
-          $("#infoMessage").html("<h3>That is great! You have guessed the word. YOU WON!</h3>");
-          $("#imageArea").html("<img class='finalImage' src='assets/images/escape.gif'>");
-          $("#iKnowTheWord").val("");
+  function newRandomWord() {
+    $.ajax({
+      type: "GET",
+      // alternative url: http://api.wordnik.com/v4/words.json/randomWords?hasDictionaryDef=true&minCorpusCount=0&minLength=5&maxLength=15&limit=1&api_key= 07cddb87a0830eaaa7002037ee80e86305979aed8ca58ac79
+      url: "http://setgetgo.com/randomword/get.php",
+      dataType: "jsonp",
+      jsonpCallback: 'RandomWordComplete',
+      //cache: false,
+      success: function(data) {
+        var randomWord = data.Word.toLowerCase();
+        var newRow = $("tr");
+        console.log("The new random word is: " + randomWord);
+        for (var i = 0; i < randomWord.length; i++) {
+          newRow.append($("<td class='randomWordTd randomWordTdWhite'>" + randomWord[i] + "</td>"));
         }
-        else {
-          console.log("word guess is: ", $wordGuess, "the random word is", randomWord);
-          $("#infoMessage").html("<h3>Sorry, the right word is " + randomWord + ". You lost :-(</h3>");
-          $("#imageArea").html("<img src='assets/images/12.jpg'>");
-          $("#iKnowTheWord").val("");
-        }
-      });
-    });
-  }
+        $("#randomWordTable").append(function(){
+            $(newRow).show(2000);
+        });
+        $(".remainingLetters").html("<h3>You have " + randomWord.length + " letters remaining for guessing</h3>");
+        $("#usedLetters").empty();
+        $("#wordSubmit").off(); //You can move this in the "new game action". Also put and elseif statement in the event the user clicks on wordSubmit but has not entered a word
+        $("#wordSubmit").click(function(){
+          var $wordGuess = $("#iKnowTheWord").val().toLowerCase();
+          if ($wordGuess === randomWord) {
+            $("#infoMessage").html("<h3>That is great! You have guessed the word. YOU WON!</h3>");
+            $("#imageArea").html("<img class='finalImage' src='assets/images/escape.gif'>");
+            $("#iKnowTheWord").val("");
+          }
+          else {
+            console.log("word guess is: ", $wordGuess, "the random word is", randomWord);
+            $("#infoMessage").html("<h3>Sorry, the right word is " + randomWord + ". You lost :-(</h3>");
+            $("#imageArea").html("<img src='assets/images/12.jpg'>");
+            $("#iKnowTheWord").val("");
+          }
+        });
+      } //End of success key
+    }); //End of $.ajax({})
+  } //End of newRandomWord function declaration
 
   //2. New letter entry
 
