@@ -88,7 +88,7 @@ $(document).ready(function(){
         }
         else {
           imageChanger += 1;
-          console.log("imageChanger is " + imageChanger);
+          // console.log("imageChanger is " + imageChanger);
           if (imageChanger >= 12) {
             $("#infoMessage").html("<h3>Sorry, you lost. The word is '" + $("td").text() + "'. Better luck next time.");
             $("#imageArea").html("<img src='assets/images/12.jpg'>");
