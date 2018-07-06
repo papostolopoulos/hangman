@@ -2,8 +2,8 @@
 
 
 $(document).ready(function(){
-  var alphabet = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z", " ", "'"]
-
+  var alphabet = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z", " ", "'", "-"];
+  var imageChanger = 1;
 
   //FUNCTIONS
   //1. New random word
@@ -55,10 +55,8 @@ $(document).ready(function(){
 
   //2. New letter entry
 
-  var controlNumber = 1;
   function newLetterEntry() {
     var $letterGuess = $("#newLetter").val().toLowerCase();
-    var imageChanger = controlNumber;
     // alert($letterGuess);
     var counter = 0;
     var $wordToGuess = $("td[class='randomWordTd randomWordTdWhite']").text();
@@ -90,12 +88,10 @@ $(document).ready(function(){
         }
         else {
           imageChanger += 1;
-          // console.log("imageChanger is " + imageChanger);
+          console.log("imageChanger is " + imageChanger);
           if (imageChanger >= 12) {
             $("#infoMessage").html("<h3>Sorry, you lost. The word is '" + $("td").text() + "'. Better luck next time.");
             $("#imageArea").html("<img src='assets/images/12.jpg'>");
-            imageChanger = 0;
-            controlNumber = 1;
             break;
           }
           else {
@@ -108,9 +104,6 @@ $(document).ready(function(){
       } //End of for loop for evaluating the letter matching
     } //else if the letter has not been evaluated already
 
-    if (imageChanger > controlNumber) {
-      controlNumber = imageChanger;
-    }
   } //End of newLetterEntry function
 
   //GAME FLOW
@@ -119,6 +112,7 @@ $(document).ready(function(){
     $("#infoMessage").empty();
     $("#newLetter").val("");
     $("#imageArea").html("<img src='assets/images/1.jpg'>");
+    imageChanger = 1;
     newRandomWord();
   });  //End of $(".startButton").click
 
