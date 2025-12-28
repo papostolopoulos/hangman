@@ -10,19 +10,14 @@ $(document).ready(function(){
   //1. New random word
   function newRandomWord(){
     var url = "https://random-word-api.herokuapp.com/word";
-    fetch(url, {
-      method: "GET",
-      headers: {
-        'X-Mashape-Key': '',
-        'Accept': 'application/json',
-        'Content-Type': 'application/json'
-      }
-    })
+    fetch(url)
     .then(function(response) {
       return response.json();
     })
     .then(function(data) {
-      return data.word;
+      // Support multiple response shapes: ["word"] or { word: "word" } or "word"
+      var wordFromApi = Array.isArray(data) ? data[0] : (data && (data.word || data));
+      return wordFromApi;
     })
     .then(function(word) {
       var randomWord = word.toLowerCase();
