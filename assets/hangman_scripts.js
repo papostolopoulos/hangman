@@ -1,3 +1,4 @@
+// Old API, returns 404: https://wordsapiv1.p.mashape.com/words/?random=true - Key: N5TPAl6S0Dmsh231cDKa7vKInQxwp1iMvEWjsniJfs7d8e0C86
 // alternative url: http://api.wordnik.com/v4/words.json/randomWords?hasDictionaryDef=true&minCorpusCount=0&minLength=5&maxLength=15&limit=1&api_key= 07cddb87a0830eaaa7002037ee80e86305979aed8ca58ac79
 
 
@@ -8,11 +9,11 @@ $(document).ready(function(){
   //FUNCTIONS
   //1. New random word
   function newRandomWord(){
-    var url = "https://wordsapiv1.p.mashape.com/words/?random=true";
+    var url = "https://random-word-api.herokuapp.com/word";
     fetch(url, {
       method: "GET",
       headers: {
-        'X-Mashape-Key': 'N5TPAl6S0Dmsh231cDKa7vKInQxwp1iMvEWjsniJfs7d8e0C86',
+        'X-Mashape-Key': '',
         'Accept': 'application/json',
         'Content-Type': 'application/json'
       }
